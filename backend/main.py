@@ -31,7 +31,7 @@ origins = [
 # Allow frontend (React/Vite) to call backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,   # you can restrict to ["http://localhost:5173"] for safety
+    allow_origins=["*"],   # you can restrict to ["http://localhost:5173"] for safety
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
