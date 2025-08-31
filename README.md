@@ -38,7 +38,8 @@ The app performs:
 ---
 
 ## 📂 Project Structure
-│── frontend/ # React frontend
+social-media-analyser
+├── frontend/ # React frontend
 │ ├── src/
 │ │ ├── App.jsx # Main UI logic
 │ │ ├── styles.css # Custom styling
@@ -46,12 +47,11 @@ The app performs:
 │ │ └── main.jsx
 │ └── package.json
 │
-│── backend/ # FastAPI backend
+├── backend/ # FastAPI backend
 │ ├── main.py # API routes (/analyze)
 │ ├── requirements.txt # Backend dependencies
 │ └── Dockerfile # Backend Docker image
 │
-│── README.md # Documentation
-│── .gitignore # Ignore build/env files
-
+├── README.md # Documentation
+└── .gitignore # Ignore build/env files
 
