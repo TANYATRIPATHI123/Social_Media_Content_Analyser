@@ -1,160 +1,154 @@
-/* ===========================
-   Global / Theme
-   =========================== */
-:root {
-  --bg: #0b1220;
-  --card: #121a2b;
-  --muted: #a7b1c2;
-  --text: #e7ecf3;
-  --accent: #4f80ff;
-  --danger: #ff5577;
-  --border: #22314f;
-}
-
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; }
+/* General Page Styling */
 body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f4f7fb;
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.4;
-  text-align: center;   /* center-align text globally */
+  padding: 0;
+  color: #333;
 }
 
-/* ===========================
-   Page Layout
-   =========================== */
-.page {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* center all children horizontally */
-  padding: 40px 20px;
-}
-.page {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Heading */
+.heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  color: #0077b6;
 }
 
-
-/* Header */
-header {
-  margin-bottom: 32px;
-}
-header h1 { 
-  margin: 0 0 10px; 
-  font-size: clamp(24px, 3.2vw, 36px); 
-}
-.subtitle { 
-  margin: 0; 
-  color: var(--muted); 
-  font-size: 16px;
+/* Upload Section */
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #023e8a;
 }
 
-/* ===========================
-   Grid (Centered)
-   =========================== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 1100px;     /* keeps the cards in center */
-  width: 100%;
-  margin: 0 auto;
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr; /* stack on small screens */
-  }
-}
-
-/* ===========================
-   Card
-   =========================== */
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  width: 100%;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  text-align: left;  /* keep text inside card aligned normally */
-}
-
-h2 { 
-  margin: 0 0 12px; 
-  font-size: clamp(18px, 2.2vw, 22px); 
-}
-
-/* ===========================
-   Dropzone / Uploader
-   =========================== */
-.dropzone {
-  border: 2px dashed #2b3d66;
-  border-radius: 14px;
-  padding: 28px;
+/* File Upload Box */
+.file-upload {
+  border: 2px dashed #90e0ef;
+  background: #e0f7fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  width: 70%;
+  max-width: 500px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-  background: #0f1630;
+  transition: all 0.3s ease;
+  position: relative;
 }
-.dropzone:hover { transform: translateY(-1px); }
-.dropzone.over { border-color: var(--accent); background: #0f1b44; }
 
-.dz-content { display: grid; gap: 6px; }
-.dz-title { font-weight: 700; }
-.dz-sub { color: var(--muted); font-size: 14px; }
-.dz-accept { color: var(--muted); font-size: 12px; opacity: 0.85; }
+.upload-box:hover {
+  background: #caf0f8;
+  border-color: #00b4d8;
+  box-shadow: 0 6px 12px rgba(0, 180, 216, 0.2);
+}
 
-.uploader .error { margin-top: 8px; color: var(--danger); font-size: 13px; }
+.upload-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
 
-/* ===========================
-   Buttons
-   =========================== */
-button.clear {
-  margin-top: 12px;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  padding: 9px 14px;
-  border-radius: 10px;
+.upload-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Hide default input */
+.file-upload input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
   cursor: pointer;
-  transition: border-color .15s ease, color .15s ease, background .15s ease;
-}
-button.clear:hover { border-color: #35518a; color: #cbd6ea; background: rgba(53,81,138,0.08); }
-button.clear:disabled { opacity: 0.55; cursor: not-allowed; }
-
-/* ===========================
-   Results
-   =========================== */
-.result { margin-top: 16px; }
-.result-title { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
-.result-box {
-  min-height: 180px;
-  max-height: 380px;
-  overflow: auto;
-  white-space: pre-wrap;
-  padding: 12px;
-  border-radius: 10px;
-  background: #0b1433;
-  border: 1px solid var(--border);
-}
-.result-box.loading { opacity: 0.6; }
-
-/* ===========================
-   Toast / Footer
-   =========================== */
-.toast {
-  background: #132140;
-  border: 1px solid #29406c;
-  color: #cfe0ff;
-  padding: 10px 12px;
-  border-radius: 10px;
-  margin-bottom: 12px;
 }
 
-footer { margin-top: 24px; color: var(--muted); }
+/* Container */
+.container {
+  width: 85%;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0077b6;
+  z-index: 1000;
+}
+
+/* Section Headings */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+  color: #03045e;
+  border-left: 6px solid #00b4d8;
+  padding-left: 10px;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+/* Buttons */
+.custom-btn {
+  background-color: #00b4d8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #0096c7;
+  transform: scale(1.05);
+}
+
+/* Text Formatting */
+#analysisText,
+#recommendationsText,
+#rewriteText {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.prose {
+  white-space: pre-line;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+h5 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}

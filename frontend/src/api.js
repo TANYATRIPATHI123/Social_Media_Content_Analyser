@@ -1,15 +1,15 @@
-import axios from "axios";
+export const uploadFile = async (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000",
-  timeout: 60000,
-});
-
-export async function uploadFile(file) {
-  const fd = new FormData();
-  fd.append("file", file);
-  const { data } = await api.post("/extract-text/", fd, {
-    headers: { "Content-Type": "multipart/form-data" },
+  const response = await fetch("http://127.0.0.1:8000/analyze", {
+    method: "POST",
+    body: formData,
   });
-  return data;
-}
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch analysis");
+  }
+
+  return await response.json();
+};
