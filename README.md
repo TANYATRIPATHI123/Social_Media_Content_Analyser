@@ -38,20 +38,23 @@ The app performs:
 ---
 
 ## 📂 Project Structure
+
+```bash
 social-media-analyser
-├── frontend/ # React frontend
-│ ├── src/
-│ │ ├── App.jsx # Main UI logic
-│ │ ├── styles.css # Custom styling
-│ │ ├── api.js # API calls
-│ │ └── main.jsx
-│ └── package.json
+├── frontend/               # React frontend
+│   ├── src/
+│   │   ├── App.jsx         # Main UI logic
+│   │   ├── styles.css      # Custom styling
+│   │   ├── api.js          # API calls
+│   │   └── main.jsx
+│   └── package.json
 │
-├── backend/ # FastAPI backend
-│ ├── main.py # API routes (/analyze)
-│ ├── requirements.txt # Backend dependencies
-│ └── Dockerfile # Backend Docker image
+├── backend/                # FastAPI backend
+│   ├── main.py             # API routes (/analyze)
+│   ├── requirements.txt    # Backend dependencies
+│   └── Dockerfile          # Backend Docker image
 │
-├── README.md # Documentation
-└── .gitignore # Ignore build/env files
+├── README.md               # Documentation
+└── .gitignore              # Ignore build/env files
+
 
