@@ -58,3 +58,22 @@ social-media-analyser
 └── .gitignore              # Ignore build/env files
 
 
+## ⚡ Setup & Installation  
+
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/TANYATRIPATHI123/Social_Media_Content_Analyser.git
+cd social-media-analyser
+
+
+### 2️⃣ Frontend Setup  
+```bash
+cd frontend
+npm install
+npm run dev
+
+### 3️⃣ Backend Setup
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
