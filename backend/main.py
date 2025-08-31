@@ -23,10 +23,15 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 
 app = FastAPI(title="Social Media Content Analyzer")
 
+origins = [
+        "http://localhost:3000",  
+        "https://social-media-content-analyser-smoky.vercel.app/", 
+    ]
+
 # Allow frontend (React/Vite) to call backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # you can restrict to ["http://localhost:5173"] for safety
+    allow_origins=origins,   # you can restrict to ["http://localhost:5173"] for safety
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
