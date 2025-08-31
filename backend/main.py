@@ -24,7 +24,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 app = FastAPI(title="Social Media Content Analyzer")
 
 origins = [
-        "http://localhost:3000",  
+        "http://localhost:5173",  
         "https://social-media-content-analyser-smoky.vercel.app/", 
     ]
 
@@ -51,7 +51,7 @@ def extract_text_from_image(file: UploadFile) -> str:
     text = pytesseract.image_to_string(image)
     return text.strip()
 
-@app.post("/analyze")
+@app.post("https://social-media-content-analyser-1.onrender.com/analyze")
 async def analyze_file(file: UploadFile = File(...)):
     try:
         # Decide based on file type
