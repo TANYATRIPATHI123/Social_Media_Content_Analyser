@@ -51,6 +51,10 @@ def extract_text_from_image(file: UploadFile) -> str:
     text = pytesseract.image_to_string(image)
     return text.strip()
 
+@app.get("/")
+async def root():
+    return {"message": "Backend is running "}
+
 @app.post("/analyze")
 async def analyze_file(file: UploadFile = File(...)):
     try:
