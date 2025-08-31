@@ -25,7 +25,7 @@ app = FastAPI(title="Social Media Content Analyzer")
 
 origins = [
         "http://localhost:5173",  
-        "https://social-media-content-analyser-smoky.vercel.app/", 
+        "https://social-media-content-analyser-smoky.vercel.app", 
     ]
 
 # Allow frontend (React/Vite) to call backend
@@ -51,7 +51,7 @@ def extract_text_from_image(file: UploadFile) -> str:
     text = pytesseract.image_to_string(image)
     return text.strip()
 
-@app.post("https://social-media-content-analyser-1.onrender.com/analyze")
+@app.post("/analyze")
 async def analyze_file(file: UploadFile = File(...)):
     try:
         # Decide based on file type
